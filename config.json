@@ -1,0 +1,9 @@
+{
+  "server": {
+    "port": 3000,
+    "host": "localhost"
+  },
+  "unwantedModules": [
+    ".DS_Store"
+  ]
+}
