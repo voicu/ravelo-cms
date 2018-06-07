@@ -20,7 +20,7 @@ suite('Registry', () => {
 
     test('contains a list of valid locations', () => {
 
-      expect(Registry.controllerPaths).to.equal(['controllers']);
+      expect(Registry.controllerDirs).to.equal(['controllers']);
     });
 
     test('subscribes controllers', () => {
@@ -33,5 +33,24 @@ suite('Registry', () => {
         fail('controller subscription should not throw an error');
       }
     });
+  });
+
+  suite('.registerModels', () => {
+
+    test('contains a list of valid locations', () => {
+
+      expect(Registry.modelDirs).to.equal(['models']);
+    });
+
+    // test('subscribes models', () => {
+
+    //   const server = Hapi.server();
+
+    //   try {
+    //     Registry.subscribeControllers(server);
+    //   } catch (e) {
+    //     fail('controller subscription should not throw an error');
+    //   }
+    // });
   });
 });

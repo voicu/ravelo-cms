@@ -5,22 +5,36 @@
  */
 const Hapi = require('hapi');
 const Registry = require('./lib/registry');
-const config = require('./config.json');
+const Config = require('./lib/config');
 
 /**
  * Setup server
  */
 const server = Hapi.server({
-  port: config.server.port,
-  host: config.server.host
+  port: Config.server.port,
+  host: Config.server.host
 });
+
+/* $lab:coverage:off$ */
+/**
+ * TODO: We need to have circle ci
+ * run a mongodb instance before
+ * running this
+ */
+if(Config.env !== 'test') {
+
+  /**
+   * Subscribe plugins
+   */
+  Registry.subscribePlugins(server);
+
+}
 
 /**
  * Subscribe controllers
  */
 Registry.subscribeControllers(server);
 
-/* $lab:coverage:off$ */
 /**
  * this function is designed to simply run
  * the server. Everything within it

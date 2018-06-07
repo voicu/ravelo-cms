@@ -1,9 +1,10 @@
 {
   "server": {
     "port": 3000,
-    "host": "localhost"
+    "host": "0.0.0.0"
   },
   "unwantedModules": [
     ".DS_Store"
-  ]
+  ],
+  "mongoose": "mongodb://mongo:27017/ravelo-cms"
 }
