@@ -2,6 +2,8 @@
 
 Ravelo Content Management System
 
+[![CircleCI](https://circleci.com/gh/ravelo-systematic-solutions/ravelo-cms/tree/master.svg?style=svg)](https://circleci.com/gh/ravelo-systematic-solutions/ravelo-cms/tree/master)
+
 # How to run for development
 
 1. Clone repo
