@@ -12,6 +12,25 @@
       "port": 3001,
       "localRoot": "${workspaceFolder}",
       "remoteRoot": "/code"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Dev",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
+      "program": "${workspaceFolder}/server.js",
+      "restart": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Debug",
+      "address": "localhost",
+      "port": 3001,
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/code"
     }
   ]
 }
