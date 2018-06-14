@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+npm run docs:clean
+npm run docs:prepare
+./node_modules/.bin/jsdoc2md --files controllers/**/*.js > docs/controllers.md
+./node_modules/.bin/jsdoc2md --files models/**/*.js > docs/models.md
+./node_modules/.bin/jsdoc2md --files lib/**/*.js > docs/lib.md
+./node_modules/.bin/gitbook build

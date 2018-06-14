@@ -3,6 +3,6 @@
   "root":      "./docs",
   "structure": { 
     "readme":  "start.md",
-    "summary": "menu.md" 
+    "summary": "menu.md"
   }
 }

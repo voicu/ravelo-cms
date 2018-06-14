@@ -29,9 +29,9 @@
       "request": "attach",
       "name": "Debug",
       "address": "localhost",
-      "port": 3002,
+      "port": 3001,
       "localRoot": "${workspaceFolder}",
-      "remoteRoot": "${workspaceFolder}"
+      "remoteRoot": "/code"
     }
   ]
 }
