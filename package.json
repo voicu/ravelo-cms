@@ -1,6 +1,6 @@
 {
   "name": "ravelo-cms",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Ravelo Content Management System",
   "main": "index.js",
   "scripts": {
