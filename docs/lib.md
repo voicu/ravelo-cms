@@ -1,3 +1,11 @@
+## Members
+
+<dl>
+<dt><a href="#getEnv">getEnv</a></dt>
+<dd><p>Expose functions to the module.</p>
+</dd>
+</dl>
+
 ## Constants
 
 <dl>
@@ -27,6 +35,12 @@ for the runtime environment.</p>
 </dd>
 </dl>
 
+<a name="getEnv"></a>
+
+## getEnv
+Expose functions to the module.
+
+**Kind**: global variable  
 <a name="Registry"></a>
 
 ## Registry

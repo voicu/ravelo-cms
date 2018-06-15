@@ -7,6 +7,13 @@ let controllers = {};
 
 /**
  * Definition of home API endpoint
+ * 
+ * @param  {} request
+ * @param  {} h
+ * @param  {Package.name} =>{return{name
+ * @param  {Package.version} version
+ * @param  {Config.env};}};} env
+ * @returns Config
  */
 controllers.about = {
   method: 'GET',
