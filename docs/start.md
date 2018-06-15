@@ -16,23 +16,23 @@ You will need to also update your hosts file by adding the following
 1. Make sure you have you have your ssh keys setup.
 
     NOTE: you can follow the [Generating a new SSH key and adding it to the ssh-agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) guide if you don't know how to do it.
-1. Go to the repo [ravelo-cms](https://github.com/ravelo-systematic-solutions/ravelo-cms) and for the repository.
-1. Select where you want the rpo to go
-1. Copy the path to your repo (eg. `git@github.com:opposite-bracket/ravelo-cms.git`) and clone it:
+1. Go to the repo [ravelo-cms](https://github.com/ravelo-systematic-solutions/ravelo-cms) and fork the repository.
+1. Select where you want the repo to go to.
+1. Copy the ssh path in your repository (eg. `git@github.com:opposite-bracket/ravelo-cms.git`) and clone it:
   ```
   git clone git@github.com:opposite-bracket/ravelo-cms.git
   cd ravelo-cms/
   docker-compose up -d
   ```
-5. You should be able to go to `http://api.localhost` and see the api running. The frontend needs to be implemented.
+5. You should be able to go to `http://api.localhost` and see the api running.
 
 # Attach remote degugger
 
-If you are using Visual Studio Code, you will find that we already have a configuration called `Attach debugger to docker container` which will allow you to place breakpoints throughout the API. -->
+If you are using Visual Studio Code, you will find that we already have a configuration called `Attach debugger to docker container` which will allow you to place breakpoints throughout the API.
 
 # How to Pull the latest changes to your fork
 
-1. got to the original [ravelo-cms](https://github.com/ravelo-systematic-solutions/ravelo-cms) website and copy the ssh url: (`git@github.com:ravelo-systematic-solutions/ravelo-cms.git`)
+1. Go to the original [ravelo-cms](https://github.com/ravelo-systematic-solutions/ravelo-cms) website and copy the ssh url: (`git@github.com:ravelo-systematic-solutions/ravelo-cms.git`)
 1. Go to your terminal and switch to your ravelo-cms directory.
 1. Create a new remote that points to the original repository like so:
     ```
