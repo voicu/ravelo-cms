@@ -5,16 +5,6 @@ const Helpers = require('../lib/helpers');
 const Registry = require('../lib/registry');
 
 /**
- * Define relative paths
- * to the model directory
- * starting by the repo
- * location.
- */
-const modelDirs = [
-  'models'
-];
-
-/**
  * This plugin will register all models
  * available to the application
  */
