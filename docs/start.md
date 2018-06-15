@@ -44,6 +44,12 @@ If you are using Visual Studio Code, you will find that we already have a config
     ```
     git pull source master
     ```
+1. Last but not least, pusing to your master branch.
+    ```
+    git push origin master
+    ```
+    NOTE: Notice that the remote is `origin` as opposed to `source`. `origin` points to **your** repository while `source` points to the open source.
+    NOTE: We encourage you to keep master untouched so that you can maintain your work separate from what we have implemented.
 
 # Submit a pull request
 
