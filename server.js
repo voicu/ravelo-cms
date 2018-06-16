@@ -8,55 +8,39 @@ const Registry = require('./lib/registry');
 const Config = require('./lib/config');
 
 /**
- * Setup server
+ * Prepare the hapi server
+ * 
+ * @returns {Server} HapiJS server
  */
-const server = Hapi.server({
-  port: Config.server.port,
-  host: Config.server.host
-});
+const setup = async () => {
+  const server = Hapi.server({
+    port: process.env.PORT || Config.server.port,
+    host: process.env.HOST || Config.server.host
+  });
 
-/* $lab:coverage:off$ */
-/**
- * TODO: We need to have circle ci
- * run a mongodb instance before
- * running this
- */
-if(Config.env !== 'test') {
+  await Registry.subscribeArchitecturePlugins(server);
+  await Registry.subscribePlugins(server);
+  await Registry.subscribeControllers(server);
 
   /**
-   * Subscribe plugins
+   * We only want to run the server when loaded through the cli.
+   * When testing, we just want to use the server as a module.
    */
-  Registry.subscribePlugins(server);
+  if (require.main === module) {
+    try {
+      await server.start();
+      console.log('Server running at:', server.info.uri);
+    } catch(err) {
+        console.log(err);
+    }
+  }
 
+
+  // server.route(Routes);
+  return server;
 }
-
-/**
- * Subscribe controllers
- */
-Registry.subscribeControllers(server);
-
-/**
- * this function is designed to simply run
- * the server. Everything within it
- * will not be included when the server is
- * loaded as a module.
- */
-const runServer = async () => {
-
-  await server.start();
-  console.log(`Server running at: ${server.info.uri}`);
-};
-
-/**
- * We only want to run the server when loaded through the cli.
- * When testing, we just want to use the server as a module.
- */
-if (require.main === module) {
-  runServer();
-}
-/* $lab:coverage:on$ */
 
 /**
  * export server configuration for testing purposes
  */
-module.exports = server;
+module.exports = setup();
