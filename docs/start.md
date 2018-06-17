@@ -19,16 +19,13 @@ You will need to also update your hosts file by adding the following
 1. Go to the repo [ravelo-cms](https://github.com/ravelo-systematic-solutions/ravelo-cms) and fork the repository.
 1. Select where you want the repo to go to.
 1. Copy the ssh path in your repository (eg. `git@github.com:opposite-bracket/ravelo-cms.git`) and clone it:
-  ```
-  git clone git@github.com:opposite-bracket/ravelo-cms.git
-  cd ravelo-cms/
-  docker-compose up -d
-  ```
+    ```
+    git clone git@github.com:opposite-bracket/ravelo-cms.git
+    cd ravelo-cms/
+    npm run server:start
+    ```
+    NOTE: run `npm run server:shutdown` to stop server
 5. You should be able to go to `http://api.localhost` and see the api running.
-
-# Attach remote degugger
-
-If you are using Visual Studio Code, you will find that we already have a configuration called `Attach debugger to docker container` which will allow you to place breakpoints throughout the API.
 
 # How to Pull the latest changes to your fork
 
@@ -62,3 +59,7 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 * PATCH version when you make backwards-compatible bug fixes.
 
 Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
+
+# Attach remote degugger
+
+If you are using Visual Studio Code, you will find that we already have a configuration called `Attach debugger to docker container` which will allow you to place breakpoints throughout the API.
