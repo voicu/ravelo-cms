@@ -14,7 +14,7 @@ const Config = require('./lib/config');
  */
 const setup = async () => {
   const server = Hapi.server({
-    port: Config.server.port,
+    port: process.env.PORT || Config.server.port,
     host: Config.server.host
   });
 
