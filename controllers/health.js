@@ -8,12 +8,16 @@ let controllers = {};
 controllers.health = {
   method: 'GET',
   path: '/health',
-  handler: (request, h) => {
-    return {
-      name: Package.name,
-      version: Package.version,
-      env: Config.env
-    };
+  config: {
+    description: 'shows information about the application',
+    tags: ['api'],
+    handler: (request, h) => {
+      return {
+        name: Package.name,
+        version: Package.version,
+        env: Config.env
+      };
+    }
   }
 };
 
