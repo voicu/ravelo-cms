@@ -3,13 +3,12 @@
 const Lab = require('lab');
 const expect = require('code').expect;
 const { suite, test, before } = exports.lab = Lab.script();
-const Hapi = require('hapi');
 const Package = require('../../package.json');
 
 const Server = require('../../server');
-const AboutCtr = require('../../controllers/about');
+const HealthCtr = require('../../controllers/health');
 
-suite('About', () => {
+suite('health', () => {
 
   let sut; // system under testing
 
@@ -17,8 +16,8 @@ suite('About', () => {
 
     // prepare request to test controller action
     const request = {
-      method: AboutCtr.about.method,
-      url: AboutCtr.about.path
+      method: HealthCtr.health.method,
+      url: HealthCtr.health.path
     };
 
     // testrequest
