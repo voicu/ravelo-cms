@@ -15,7 +15,7 @@ const Config = require('./lib/config');
 const setup = async () => {
   const server = Hapi.server({
     port: process.env.PORT || Config.server.port,
-    host: Config.server.host
+    host: process.env.HOST || Config.server.host
   });
 
   await Registry.subscribeArchitecturePlugins(server);
