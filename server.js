@@ -14,8 +14,8 @@ const Config = require('./lib/config');
  */
 const setup = async () => {
   const server = Hapi.server({
-    port: process.env.PORT || Config.server.port,
-    host: process.env.HOST || Config.server.host
+    port: Config.server.port,
+    host: Config.server.host
   });
 
   await Registry.subscribeArchitecturePlugins(server);
@@ -26,6 +26,7 @@ const setup = async () => {
    * We only want to run the server when loaded through the cli.
    * When testing, we just want to use the server as a module.
    */
+  /* $lab:coverage:off$ */
   if (require.main === module) {
     try {
       await server.start();
@@ -34,9 +35,7 @@ const setup = async () => {
         console.log(err);
     }
   }
-
-
-  // server.route(Routes);
+  /* $lab:coverage:on$ */
   return server;
 }
 
