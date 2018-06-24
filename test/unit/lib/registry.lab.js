@@ -5,7 +5,7 @@ const expect = require('code').expect;
 const { suite, test, before } = exports.lab = Lab.script();
 const Hapi = require('hapi');
 
-const Registry = require('../../lib/registry');
+const Registry = require('../../../lib/registry');
 
 suite('Registry', () => {
 

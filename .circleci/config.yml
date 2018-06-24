@@ -8,12 +8,11 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:10.3.0 # for the CircleCI "Convenience" image
-      - image: node:10.3.0
-      
+
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
+      - image: circleci/mongo:3.4-jessie
 
     working_directory: ~/repo
 
@@ -27,12 +26,22 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: npm install
+      - run:
+          name: Install dependencies
+          command: npm install
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-        
+
       # run tests!
-      - run: npm test
+      - run:
+          name: Run vulnerability check
+          command: npm audit
+      - run:
+          name: Run unit tests
+          command: npm run test:unit
+      - run:
+          name: Run integration tests
+          command: npm run test:integration

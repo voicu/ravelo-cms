@@ -4,7 +4,7 @@ const Path = require('path');
 const Lab = require('lab');
 const expect = require('code').expect;
 const { suite, test, before } = exports.lab = Lab.script();
-const Helpers = require('../../lib/helpers');
+const Helpers = require('../../../lib/helpers');
 
 suite('Helpers', () => {
 
@@ -14,7 +14,7 @@ suite('Helpers', () => {
 
     test('lists module files in a path', async () => {
 
-      const _path = Path.resolve(__dirname, '../fixtures/fake-controllers');
+      const _path = Path.resolve(__dirname, '../../fixtures/fake-controllers');
       expect(await sut(_path)).to.equal(['fake-controller.js']);
     });
 
