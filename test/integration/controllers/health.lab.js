@@ -3,9 +3,9 @@
 const Lab = require('lab');
 const expect = require('code').expect;
 const { suite, test, before } = exports.lab = Lab.script();
-const Package = require('../../package.json');
+const Package = require('../../../package.json');
 
-const HealthCtr = require('../../controllers/health');
+const HealthCtr = require('../../../controllers/health');
 
 suite('health', () => {
 
@@ -13,7 +13,7 @@ suite('health', () => {
 
   before(async () => {
 
-    const Server = await require('../../server');
+    const Server = await require('../../../server');
 
     // prepare request to test controller action
     const request = {

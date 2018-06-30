@@ -3,6 +3,7 @@
 const Path = require('path');
 const Helpers = require('../lib/helpers');
 const Registry = require('../lib/registry');
+const Config = require('../lib/config');
 
 /**
  * This plugin will register all models
@@ -13,24 +14,27 @@ exports.plugin = {
   version: '0.0.1',
   register: (server) => {
 
-    let models = {};
+    if (Config.env !== 'test') {
 
-    Registry.modelDirs.forEach(async (modelPath) => {
+      let models = {};
 
-      // get controller's absolute path
-      const dirPath = Path.resolve(__dirname, '..', modelPath);
-      const filePaths = await Helpers.listModules(dirPath);
-  
-      filePaths.forEach((modulePath) => {
-        // load controller
-        const model = require(`${dirPath}/${modulePath}`);
-  
-        // subscribe controller
-        models[model.modelName] = model;
-        console.info('controller subscribed', model.modelName);
+      Registry.modelDirs.forEach(async (modelPath) => {
+
+        // get controller's absolute path
+        const dirPath = Path.resolve(__dirname, '..', modelPath);
+        const filePaths = await Helpers.listModules(dirPath);
+    
+        filePaths.forEach((modulePath) => {
+          // load controller
+          const model = require(`${dirPath}/${modulePath}`);
+    
+          // subscribe controller
+          models[model.modelName] = model;
+          console.info('controller subscribed', model.modelName);
+        });
       });
-    });
 
-    server.expose('models', models);
+      server.expose('models', models);
+    }
   }
 };
